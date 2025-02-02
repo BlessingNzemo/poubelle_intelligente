@@ -60,4 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/landing', function () {
             return view('landing');
         });
+    Route::get('/gestion', function () {
+        return view('dashboard');
+    });
 });
