@@ -68,9 +68,10 @@
         <div class="text-center">
             <a href="#"
                 class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">
-                <img src="https://demo.themesberg.com/landwind/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
+                <x-application-logo class="w-10 h-10 fill-current text-green-600 dark:text-green-400" />
 Poubelle Intelligente
 </a>
+
                 <span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2024-2025 Poubelle Intelligente™. Tous droits reservés.
 </span>
                 <ul class="flex justify-center mt-5 space-x-5">
