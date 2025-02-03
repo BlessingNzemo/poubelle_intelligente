@@ -8,6 +8,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 // routes/api.php
-Route::post('/trashcan/update', [TrashcanController::class, 'updateData']);
-Route::get('/trashcan/{id}/status', [TrashcanController::class, 'getStatus']);
 
