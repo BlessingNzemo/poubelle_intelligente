@@ -1,50 +1,87 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.14">
   <diagram name="Page-1" id="kljj3TdR8a4GZSSSUlia">
-    <mxGraphModel>
+    <mxGraphModel dx="703" dy="1305" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="2" value="Bin" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28.923076923076923;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="8" y="8" width="540" height="384" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zWdDByXL690ErpCcSVt3-16" target="zWdDByXL690ErpCcSVt3-27">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="3" value="- id: UUID" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="29" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-16" value="Bin" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="90" width="190" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="4" value="- name: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="58" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-17" value="-id: UUID&lt;div&gt;-name : String&lt;/div&gt;&lt;div&gt;-location: String&lt;/div&gt;&lt;div&gt;-latitude: Float&lt;/div&gt;&lt;div&gt;-fllLevel: Float&lt;/div&gt;&lt;div&gt;-batteryLevel: Float&lt;/div&gt;&lt;div&gt;-isConnected: Boolean&lt;/div&gt;&lt;div&gt;- lastCommunication: DateTime&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-16">
+          <mxGeometry y="26" width="190" height="134" as="geometry" />
         </mxCell>
-        <mxCell id="5" value="- location: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="87" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-18" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="zWdDByXL690ErpCcSVt3-16">
+          <mxGeometry y="160" width="190" height="10" as="geometry" />
         </mxCell>
-        <mxCell id="6" value="- latitude: Float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="116" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-19" value="+ getFillLevel()&lt;div&gt;+getBatteryLevel()&lt;/div&gt;&lt;div&gt;+updateStatus()&lt;/div&gt;&lt;div&gt;+sendAlert()&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-16">
+          <mxGeometry y="170" width="190" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="7" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="2">
-          <mxGeometry y="145" width="540" height="8" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-23" value="BinData" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="80" width="200" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="8" value="+ constructor(id: UUID, name: String, location: String, latitude: Float)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="153" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-24" value="- id : UUID&lt;div&gt;- binId: UUID&lt;/div&gt;&lt;div&gt;- FillLevel :Float&lt;/div&gt;&lt;div&gt;- temperature: Float&lt;/div&gt;&lt;div&gt;- batteryVoltage: Float&lt;/div&gt;&lt;div&gt;- timestamp: DateTime&lt;/div&gt;&lt;div&gt;- sensorData: JSON&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-23">
+          <mxGeometry y="26" width="200" height="134" as="geometry" />
         </mxCell>
-        <mxCell id="9" value="+ getId() : : UUID" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="182" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-25" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="zWdDByXL690ErpCcSVt3-23">
+          <mxGeometry y="160" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="10" value="+ getName() : : String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="210" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-26" value="+ recordMeasurement()&lt;div&gt;+ getLatestData()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-23">
+          <mxGeometry y="168" width="200" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="11" value="+ getLocation() : : String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="239" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-27" value="Alert" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="530" width="170" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="12" value="+ getLatitude() : : Float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="268" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-28" value="&lt;div&gt;- id: UUID&lt;/div&gt;&lt;div&gt;- binId: UUID&lt;/div&gt;&lt;div&gt;- type: String&lt;/div&gt;&lt;div&gt;- message: String&lt;/div&gt;&lt;div&gt;- status: String&lt;/div&gt;&lt;div&gt;- createdAt: DateTime&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-27">
+          <mxGeometry y="26" width="170" height="104" as="geometry" />
         </mxCell>
-        <mxCell id="13" value="+ setName(name: String) : : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="297" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-29" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="zWdDByXL690ErpCcSVt3-27">
+          <mxGeometry y="130" width="170" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="14" value="+ setLocation(location: String) : : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="326" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-30" value="&lt;div&gt;+ notifyUser()&lt;/div&gt;&lt;div&gt;+ updateStatus()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-27">
+          <mxGeometry y="138" width="170" height="52" as="geometry" />
         </mxCell>
-        <mxCell id="15" value="+ setLatitude(latitude: Float) : : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
-          <mxGeometry y="355" width="540" height="29" as="geometry" />
+        <mxCell id="zWdDByXL690ErpCcSVt3-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="zWdDByXL690ErpCcSVt3-31" target="zWdDByXL690ErpCcSVt3-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-31" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="370" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-32" value="&lt;div&gt;- id: UUID&lt;/div&gt;&lt;div&gt;- name: String&lt;/div&gt;&lt;div&gt;- email: String&lt;/div&gt;&lt;div&gt;- role: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-31">
+          <mxGeometry y="26" width="160" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-33" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="zWdDByXL690ErpCcSVt3-31">
+          <mxGeometry y="110" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-34" value="&lt;div&gt;+ manageBins()&lt;/div&gt;&lt;div&gt;+ receiveAlerts()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-31">
+          <mxGeometry y="118" width="160" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-35" value="MaintenanceLog&amp;nbsp;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="560" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-36" value="&lt;div&gt;&amp;nbsp;- id: UUID&lt;/div&gt;&lt;div&gt;&amp;nbsp;- binId: UUID&lt;/div&gt;&lt;div&gt;&amp;nbsp;- userId: UUID&lt;/div&gt;&lt;div&gt;&amp;nbsp;- description: String&lt;/div&gt;&lt;div&gt;&amp;nbsp;- date: DateTime&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-35">
+          <mxGeometry y="26" width="160" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-37" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="zWdDByXL690ErpCcSVt3-35">
+          <mxGeometry y="110" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-38" value="&lt;div&gt;+ createLog()&lt;/div&gt;&lt;div&gt;+ getMaintenanceHistory()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="zWdDByXL690ErpCcSVt3-35">
+          <mxGeometry y="118" width="160" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="zWdDByXL690ErpCcSVt3-17" target="zWdDByXL690ErpCcSVt3-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.654;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="zWdDByXL690ErpCcSVt3-16" target="zWdDByXL690ErpCcSVt3-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zWdDByXL690ErpCcSVt3-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.346;entryY=-0.021;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="zWdDByXL690ErpCcSVt3-19" target="zWdDByXL690ErpCcSVt3-35">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="645" y="330" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
