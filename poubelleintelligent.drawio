@@ -109,8 +109,8 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Ln8N77jeR7EHjkVOs_8A-1" value="ty" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="251" y="48" width="300" height="371" as="geometry" />
+        <mxCell id="Ln8N77jeR7EHjkVOs_8A-3" value="Système de poubele connecté" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=135;height=40;" vertex="1" parent="1">
+          <mxGeometry x="172" y="104" width="480" height="258" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
