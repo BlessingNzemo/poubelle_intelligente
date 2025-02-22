@@ -12,16 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bins', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('location');
-            $table->decimal('latitude', 10, 8)->default(0);
-            $table->decimal('longitude', 10, 8)->default(0);
-            $table->float('fill_level')->default(0);
-            $table->float('battery_level')->default(100);
-            $table->integer('signal_strength')->default(3); // 1-3 (faible/moyen/fort)
-            $table->boolean('is_connected')->default(true);
-            $table->timestamp('last_communication')->nullable();
+            $table->id(); // UUID unique de la poubelle
+            $table->string('serial_number')->unique(); // Numéro de série unique
+            $table->string('name')->nullable(); // Nom de la poubelle (optionnel)
+            $table->string('location')->nullable(); // Emplacement de la poubelle (optionnel)
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // Clé étrangère vers la table users
             $table->timestamps();
         });
     }

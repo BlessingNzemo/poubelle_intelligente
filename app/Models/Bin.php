@@ -2,30 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bins extends Model
+class Bin extends Model
 {
-    //
-    use HasUuids;
     use HasFactory;
-    protected $keyType = 'string';
-    public $incrementing = false;
-    protected $fillable = [
 
-        'id','name', 'location', 'latitude', 'longitude',
-        'fill_level', 'battery_level', 'signal_strength',
-        'is_connected', 'last_communication'
+    protected $fillable = [
+        'serial_number',
+        'name',
+        'location',
+        'user_id',
     ];
 
     protected $casts = [
         'last_communication' => 'datetime',
     ];
 
-    public function data() {
-        return $this->hasMany(Bin_data::class);
+    public function binDatas()
+    {
+        return $this->hasMany(BinData::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function alerts() {

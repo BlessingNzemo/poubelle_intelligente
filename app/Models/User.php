@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
     public function assignedBins()
     {
-        return $this->belongsToMany(Bins::class, 'assigned_bins', 'user_id', 'bin_id');    }
+        return $this->belongsToMany(Bin::class, 'assigned_bins', 'user_id', 'bin_id');    }
 
     public function maintenanceLogs()
     {

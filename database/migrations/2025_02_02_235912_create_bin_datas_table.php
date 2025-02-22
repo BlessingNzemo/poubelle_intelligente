@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('bin_datas', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('bin_id')->constrained()->cascadeOnDelete();
-            $table->float('fill_level');
+            $table->decimal('latitude', 10, 8)->nullable();
+            $table->decimal('longitude', 10, 8)->nullable();
+            $table->float('fill_level')->nullable();
             $table->float('temperature')->nullable();
-            $table->float('battery_voltage');
-            $table->json('sensor_data')->nullable(); // Données brutes
+            $table->float('humidity')->nullable();
+            $table->boolean('is_open')->nullable(); // Ajout pour l'état du servomoteur
             $table->timestamps();
         });
     }

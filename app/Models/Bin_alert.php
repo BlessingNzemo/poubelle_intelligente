@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Bin;
 
 class Bin_alert extends Model
 {
@@ -11,6 +12,6 @@ class Bin_alert extends Model
 
     public function bin()
     {
-        return $this->belongsTo(Bins::class);
+        return $this->belongsTo(Bin::class);
     }
 }
