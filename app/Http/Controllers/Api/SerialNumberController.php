@@ -16,14 +16,14 @@ class SerialNumberController extends Controller
      */
     public function generate(): JsonResponse
     {
-        Log::info('Attempting to generate a unique serial number.');
+        Log::info('Tentative de génération d\' un numéro de série unique.');
 
         try {
             $prefix = 'POUB';
             $randomNumber = mt_rand(100, 999); // Génère un nombre aléatoire entre 100 et 999
             $countryCode = 'DRC';
 
-            $serialNumber = $prefix . '/' . $randomNumber . '/' . $countryCode;
+            $serialNumber = $prefix . '-' . $randomNumber . '-' . $countryCode;
 
             Log::info('Successfully generated a unique serial number.', ['serial_number' => $serialNumber]);
             return response()->json(['serial_number' => $serialNumber]);

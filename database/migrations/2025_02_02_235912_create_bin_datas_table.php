@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bin_datas', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('bin_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('bin_id')->constrained()->cascadeOnDelete();
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 10, 8)->nullable();
             $table->float('fill_level')->nullable();

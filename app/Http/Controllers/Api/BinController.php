@@ -97,9 +97,139 @@ class BinController extends Controller
                 'user_id' => $userId,
                 'message' => $e->getMessage()
             ]);
-            
+
             return response()->json([
                 'message' => 'Une erreur est survenue lors de la récupération des poubelles'
+            ], 500);
+        }
+    }
+
+    /**
+     * Récupère les détails d'une poubelle avec ses données
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getBinDetails($id)
+    {
+        try {
+            // Utilise la relation binDatas définie dans le modèle Bin
+            $bin = Bin::with(['binDatas' => function($query) {
+                $query->latest()->limit(1);
+            }])->find($id);
+
+            if (!$bin) {
+                Log::warning('Poubelle non trouvée.', ['bin_id' => $id]);
+                return response()->json([
+                    'message' => 'Poubelle non trouvée'
+                ], 404);
+            }
+
+            // Récupère les dernières données de la poubelle
+            $lastData = $bin->binDatas->first();
+
+            // Formater les données de base de la poubelle
+            $binDetails = [
+                'id' => $bin->id,
+                'name' => $bin->name,
+                'serial_number' => $bin->serial_number,
+                'location' => $bin->location,
+                'created_at' => $bin->created_at->format('d/m/Y H:i'),
+                'updated_at' => $bin->updated_at->format('d/m/Y H:i'),
+                'has_sensor_data' => !is_null($lastData),
+                'sensor_status' => !is_null($lastData) ? 'active' : 'en attente de données'
+            ];
+
+            // Ajouter les données des capteurs si disponibles
+            if ($lastData) {
+                $binDetails['sensor_data'] = [
+                    'fill_level' => $lastData->fill_level,
+                    'temperature' => $lastData->temperature,
+                    'humidity' => $lastData->humidity,
+                    'is_open' => $lastData->is_open,
+                    'latitude' => $lastData->latitude,
+                    'longitude' => $lastData->longitude,
+                    'last_update' => $lastData->created_at->format('d/m/Y H:i')
+                ];
+            }
+
+            Log::info('Détails de la poubelle récupérés avec succès.', [
+                'bin_id' => $id,
+                'has_sensor_data' => !is_null($lastData)
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => !is_null($lastData)
+                    ? 'Détails de la poubelle récupérés avec succès'
+                    : 'Détails de base récupérés, en attente des données des capteurs',
+                'data' => $binDetails
+            ], 200);
+
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la récupération des détails de la poubelle.', [
+                'bin_id' => $id,
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Une erreur est survenue lors de la récupération des détails'
+            ], 500);
+        }
+    }
+
+    /**
+     * Supprime une poubelle spécifique
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        try {
+            Log::info('Tentative de suppression de la poubelle.', ['bin_id' => $id]);
+
+            $bin = Bin::find($id);
+
+            if (!$bin) {
+                Log::warning('Poubelle non trouvée.', ['bin_id' => $id]);
+                return response()->json([
+                    'message' => 'Poubelle non trouvée'
+                ], 404);
+            }
+
+            // Vérifier si l'utilisateur connecté est autorisé à supprimer cette poubelle
+            if (Auth::id() !== $bin->user_id) {
+                Log::warning('Utilisateur non autorisé à supprimer cette poubelle.', [
+                    'bin_id' => $id,
+                    'user_id' => Auth::id()
+                ]);
+                return response()->json([
+                    'message' => 'Non autorisé'
+                ], 403);
+            }
+
+            // Supprimer les données associées à la poubelle
+            $bin->binDatas()->delete();
+
+            $bin->delete();
+
+            Log::info('Poubelle supprimée avec succès.', ['bin_id' => $id]);
+            return response()->json([
+                'message' => 'Poubelle supprimée avec succès'
+            ], 200);
+
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la suppression de la poubelle.', [
+                'bin_id' => $id,
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'message' => 'Une erreur est survenue lors de la suppression'
             ], 500);
         }
     }

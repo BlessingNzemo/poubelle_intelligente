@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\BinDataController;
 use App\Http\Controllers\Api\UserController; // Import the UserController
 use App\Http\Controllers\Api\SerialNumberController;
 use App\Http\Controllers\Api\BinController; //
+use App\Http\Controllers\Api\SensorDataController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::delete('/bins/{userId}/{binId}', [BinController::class, 'destroy']);
 
 Route::post('/bin-data', [BinDataController::class, 'store']);
 
@@ -30,3 +32,5 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/generate-serial', [SerialNumberController::class, 'generate']);
 Route::post('/bins', [BinController::class, 'store']);
 Route::get('/bins/{userId}', [BinController::class, 'getBinsByUserId']);
+Route::get('/bins/{id}/details', [BinController::class, 'getBinDetails']);
+Route::post('/sensor-data/{serial_number}', [SensorDataController::class, 'store']);

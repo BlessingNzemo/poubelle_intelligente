@@ -1,7 +1,8 @@
 {{-- <x-app-layout> --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- En-tête -->
-    <div
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+@include('components.show-bin-modal')
+<!-- En-tête -->
+<div
 
     <!-- Liste des poubelles -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden ">
@@ -45,7 +46,7 @@
                 .then(data => {
                     const binsList = document.getElementById('binsList');
                     const emptyState = document.getElementById('emptyState');
-                    
+
                     if (data.data.length === 0) {
                         binsList.innerHTML = '';
                         emptyState.classList.remove('hidden');
@@ -75,7 +76,8 @@
                                         Dernière mise à jour: ${new Date(bin.updated_at).toLocaleDateString()}
                                     </span>
                                     <div class="flex space-x-2">
-                                        <button onclick="viewBin(${bin.id})" class="p-2 text-blue-600 hover:bg-blue-100 rounded-full">
+
+                                        <button onclick="showBinDetails(${bin.id})" class="p-2 text-blue-600 hover:bg-blue-100 rounded-full">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -119,8 +121,8 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    
-                    fetch(`/api/bins/${binId}`, {
+
+                    fetch(`/api/bins/${userId}/${binId}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
@@ -128,17 +130,32 @@
                         }
                     })
                     .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Erreur lors de la suppression');
+                        if (response.ok) {
+                            Swal.fire(
+                                'Supprimé!',
+                                'La poubelle a été supprimée.',
+                                'success'
+                            ).then(() => {
+                                loadBins(userId); // Recharger la liste après la suppression
+                            });
+                        } else {
+                            // Afficher un message d'erreur plus précis
+                            response.json().then(data => {
+                                Swal.fire(
+                                    'Erreur!',
+                                    data.message || 'La suppression a échoué.',
+                                    'error'
+                                );
+                            }).catch(() => {
+                                Swal.fire(
+                                    'Erreur!',
+                                    'La suppression a échoué.',
+                                    'error'
+                                );
+                            });
                         }
-                        Swal.fire(
-                            'Supprimé!',
-                            'La poubelle a été supprimée.',
-                            'success'
-                        );
-                        loadBins(userId); // Recharger la liste
                     })
-                    .catch(error => {
+                    .catch(error => { 
                         console.error('Erreur:', error);
                         Swal.fire(
                             'Erreur!',

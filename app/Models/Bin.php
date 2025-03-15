@@ -22,7 +22,7 @@ class Bin extends Model
 
     public function binDatas()
     {
-        return $this->hasMany(BinData::class);
+        return $this->hasMany(BinData::class, 'bin_id');
     }
     public function user()
     {
